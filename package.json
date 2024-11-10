@@ -3,9 +3,8 @@
   "version": "0.0.1",
   "description": "",
   "type": "module",
-  "main": "dist/qwack.js",
+  "main": "dist/qwack",
   "types": "dist/qwack.d.ts",
-  "files": ["dist"],
   "exports": {
     ".": "dist/index.js",
     "./*": "dist/*",
