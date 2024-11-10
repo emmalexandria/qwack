@@ -12,7 +12,7 @@ export default defineConfig({
                                 'themes/dark.css': resolve(__dirname, 'src/themes/dark.css')
                         },
                         formats: ['es'],
-                        fileName: 'index'
+                        fileName: 'qwack'
                 },
         },
         plugins: [
