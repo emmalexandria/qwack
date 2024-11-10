@@ -6,6 +6,10 @@
   "main": "dist/qwack.js",
   "types": "dist/qwack.d.ts",
   "files": ["dist"],
+  "exports": {
+    ".": "dist/qwack.js",
+    "./*": "dist/*"
+  },
   "scripts": {
     "dev": "npm-run-all -p gen:custom-elements:watch storybook",
     "build": "npm-run-all -s vite:build gen:custom-elements",

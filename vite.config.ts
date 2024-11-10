@@ -14,9 +14,6 @@ export default defineConfig({
                         formats: ['es'],
                         fileName: 'qwack'
                 },
-                rollupOptions: {
-                        external: /^lit/
-                }
         },
         plugins: [
                 dts({
