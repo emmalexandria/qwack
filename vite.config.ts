@@ -11,7 +11,6 @@ export default defineConfig({
                                 'themes/light.css': resolve(__dirname, 'src/themes/light.css'),
                                 'themes/dark.css': resolve(__dirname, 'src/themes/dark.css')
                         },
-
                         formats: ['es'],
                         fileName: 'qwack'
                 },
@@ -21,7 +20,7 @@ export default defineConfig({
         },
         plugins: [
                 dts({
-                        insertTypesEntry: true,
+
                 })
         ]
 

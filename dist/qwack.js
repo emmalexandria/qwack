@@ -1,18 +1,25 @@
-import { classMap as X } from "lit/directives/class-map.js";
-import { literal as W, html as Z } from "lit/static-html.js";
-import { property as L, customElement as Q } from "lit/decorators.js";
-import { LitElement as q, css as U } from "lit";
-const k = class k extends q {
+import { classMap as ee } from "lit/directives/class-map.js";
+import { literal as Q, html as N } from "lit/static-html.js";
+import { property as A, customElement as X } from "lit/decorators.js";
+import { LitElement as ne, css as B, html as te } from "lit";
+import { unsafeHTML as re } from "lit/directives/unsafe-html.js";
+const $ = class $ extends ne {
 };
-k.styles = U`:host, :host * {box-sizing: border-box;}`;
-let D = k;
-const _ = U`
+$.styles = B`:host, :host * {box-sizing: border-box;}`;
+let C = $;
+const oe = B`
   :host {
     display: inline-block;
   }
 
+  
+
   .button--base {
-    display: inline-block;
+    color: var(--qwack-foreground);
+    display: flex;
+    flex-direction: row;
+    gap: var(--qwack-space-1);
+    align-items: center;
     text-decoration: none;
     border: none;
     outline: none;
@@ -53,6 +60,10 @@ const _ = U`
     letter-spacing: 1px;
   }
 
+  .button--small .button--icon {
+    height: var(--qwack-font-sm);
+}
+
 .button--regular{
     border-width: 1.5px;
     font-weight: 600;
@@ -62,6 +73,11 @@ const _ = U`
     letter-spacing: 0.5px;
   }
 
+.button--regular .button--icon {
+    height: var(--qwack-font-r);
+}
+
+
   .button--large {
     border-width: 1.5px;
     font-weight: 600;
@@ -70,28 +86,35 @@ const _ = U`
     border-radius: var(--qwack-rounded-sm);
   }
 
+.button--large .button--icon {
+    height: var(--qwack-font-lg);
+}
+
+
   .button--disabled {
     opacity: 60%;
     pointer-events: none;
   }
+
+  
 `;
-var ee = Object.defineProperty, ne = Object.getOwnPropertyDescriptor, E = (P, A, r, c) => {
-  for (var e = c > 1 ? void 0 : c ? ne(A, r) : A, t = P.length - 1, n; t >= 0; t--)
-    (n = P[t]) && (e = (c ? n(A, r, e) : n(e)) || e);
-  return c && e && ee(A, r, e), e;
+var le = Object.defineProperty, ie = Object.getOwnPropertyDescriptor, I = (O, w, r, s) => {
+  for (var e = s > 1 ? void 0 : s ? ie(w, r) : w, t = O.length - 1, n; t >= 0; t--)
+    (n = O[t]) && (e = (s ? n(w, r, e) : n(e)) || e);
+  return s && e && le(w, r, e), e;
 };
-let S = class extends D {
+let S = class extends C {
   constructor() {
-    super(...arguments), this.label = "Button", this.size = "regular", this.primary = !1, this.href = "", this.disabled = !1;
+    super(...arguments), this.label = "Button", this.size = "regular", this.primary = !1, this.href = "", this.type = "button", this.disabled = !1, this.suffix = "";
   }
   isLink() {
     return !!this.href;
   }
   render() {
-    const P = this.isLink(), A = P ? W`a` : W`button`;
-    return Z`
-                <${A}
-                class=${X({
+    const O = this.isLink(), w = O ? Q`a` : Q`button`;
+    return N`
+                <${w}
+                class=${ee({
       "button--base": !0,
       "button--default": !this.primary,
       "button--primary": this.primary,
@@ -99,44 +122,53 @@ let S = class extends D {
       "button--regular": this.size == "regular",
       "button--large": this.size == "large",
       "button--disabled": this.disabled
-    })} href=${P && !this.disabled ? this.href : void 0}>
-                ${this.label} 
-                </${A}>
+    })} href=${O && !this.disabled ? this.href : void 0}
+            >
+                                ${this.label} 
+${this.suffix ? N`<span class="button--icon"><q-icon fitHeight icon="${this.suffix}"></span>` : N``}
+
+                </${w}>
                 `;
   }
 };
-S.styles = [D.styles, _];
-E([
-  L({ reflect: !0 })
+S.styles = [C.styles, oe];
+I([
+  A({ reflect: !0 })
 ], S.prototype, "label", 2);
-E([
-  L({ reflect: !0 })
+I([
+  A({ reflect: !0 })
 ], S.prototype, "size", 2);
-E([
-  L({ type: Boolean, reflect: !0 })
+I([
+  A({ type: Boolean, reflect: !0 })
 ], S.prototype, "primary", 2);
-E([
-  L({ reflect: !0 })
+I([
+  A({ reflect: !0 })
 ], S.prototype, "href", 2);
-E([
-  L({ type: Boolean, reflect: !0 })
+I([
+  A({ reflect: !0 })
+], S.prototype, "type", 2);
+I([
+  A({ type: Boolean, reflect: !0 })
 ], S.prototype, "disabled", 2);
-S = E([
-  Q("q-button")
+I([
+  A({ reflect: !0 })
+], S.prototype, "suffix", 2);
+S = I([
+  X("q-button")
 ], S);
-var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, re = { exports: {} };
-(function(P, A) {
-  (function(c, e) {
-    P.exports = e();
-  })(typeof self < "u" ? self : te, function() {
+var ae = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, Z = { exports: {} };
+(function(O, w) {
+  (function(s, e) {
+    O.exports = e();
+  })(typeof self < "u" ? self : ae, function() {
     return (
       /******/
       function(r) {
-        var c = {};
+        var s = {};
         function e(t) {
-          if (c[t])
-            return c[t].exports;
-          var n = c[t] = {
+          if (s[t])
+            return s[t].exports;
+          var n = s[t] = {
             /******/
             i: t,
             /******/
@@ -147,7 +179,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
           };
           return r[t].call(n.exports, n, n.exports, e), n.l = !0, n.exports;
         }
-        return e.m = r, e.c = c, e.d = function(t, n, o) {
+        return e.m = r, e.c = s, e.d = function(t, n, o) {
           e.o(t, n) || Object.defineProperty(t, n, {
             /******/
             configurable: !1,
@@ -194,7 +226,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*******************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t, n;
             /*!
               Copyright (c) 2016 Jed Watson.
@@ -210,13 +242,13 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
                   for (var m = u.length, v = 0; v < m; ++v)
                     p(x, u[v]);
                 }
-                var s = {}.hasOwnProperty;
+                var c = {}.hasOwnProperty;
                 function a(x, u) {
                   x[u] = !0;
                 }
                 function d(x, u) {
                   for (var m in u)
-                    s.call(u, m) && (x[m] = !!u[m]);
+                    c.call(u, m) && (x[m] = !!u[m]);
                 }
                 var h = /\s+/;
                 function y(x, u) {
@@ -243,7 +275,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               }();
               typeof r < "u" && r.exports ? r.exports = o : (t = [], n = (function() {
                 return o;
-              }).apply(c, t), n !== void 0 && (r.exports = n));
+              }).apply(s, t), n !== void 0 && (r.exports = n));
             })();
           }
         ),
@@ -254,7 +286,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \***********************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             e(
               /*! ../../modules/es.string.iterator */
               "./node_modules/core-js/modules/es.string.iterator.js"
@@ -276,7 +308,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \******************************************************/
           /*! no static exports found */
           /***/
-          function(r, c) {
+          function(r, s) {
             r.exports = function(e) {
               if (typeof e != "function")
                 throw TypeError(String(e) + " is not a function");
@@ -291,7 +323,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*****************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/is-object */
               "./node_modules/core-js/internals/is-object.js"
@@ -310,7 +342,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \******************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/bind-context */
               "./node_modules/core-js/internals/bind-context.js"
@@ -326,7 +358,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), i = e(
               /*! ../internals/to-length */
               "./node_modules/core-js/internals/to-length.js"
-            ), s = e(
+            ), c = e(
               /*! ../internals/create-property */
               "./node_modules/core-js/internals/create-property.js"
             ), a = e(
@@ -337,14 +369,14 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               var y = n(h), p = typeof this == "function" ? this : Array, f = arguments.length, x = f > 1 ? arguments[1] : void 0, u = x !== void 0, m = 0, v = a(y), b, g, j, M;
               if (u && (x = t(x, f > 2 ? arguments[2] : void 0, 2)), v != null && !(p == Array && l(v)))
                 for (M = v.call(y), g = new p(); !(j = M.next()).done; m++)
-                  s(
+                  c(
                     g,
                     m,
                     u ? o(M, x, [j.value, m], !0) : j.value
                   );
               else
                 for (b = i(y.length), g = new p(b); b > m; m++)
-                  s(g, m, u ? x(y[m], m) : y[m]);
+                  c(g, m, u ? x(y[m], m) : y[m]);
               return g.length = m, g;
             };
           }
@@ -356,7 +388,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \**********************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/to-indexed-object */
               "./node_modules/core-js/internals/to-indexed-object.js"
@@ -368,12 +400,12 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               "./node_modules/core-js/internals/to-absolute-index.js"
             );
             r.exports = function(l) {
-              return function(i, s, a) {
+              return function(i, c, a) {
                 var d = t(i), h = n(d.length), y = o(a, h), p;
-                if (l && s != s) {
+                if (l && c != c) {
                   for (; h > y; )
                     if (p = d[y++], p != p) return !0;
-                } else for (; h > y; y++) if ((l || y in d) && d[y] === s)
+                } else for (; h > y; y++) if ((l || y in d) && d[y] === c)
                   return l || y || 0;
                 return !l && -1;
               };
@@ -387,7 +419,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \********************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/a-function */
               "./node_modules/core-js/internals/a-function.js"
@@ -404,12 +436,12 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
                     return n.call(o, i);
                   };
                 case 2:
-                  return function(i, s) {
-                    return n.call(o, i, s);
+                  return function(i, c) {
+                    return n.call(o, i, c);
                   };
                 case 3:
-                  return function(i, s, a) {
-                    return n.call(o, i, s, a);
+                  return function(i, c, a) {
+                    return n.call(o, i, c, a);
                   };
               }
               return function() {
@@ -425,7 +457,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \****************************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/an-object */
               "./node_modules/core-js/internals/an-object.js"
@@ -434,8 +466,8 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               try {
                 return i ? o(t(l)[0], l[1]) : o(l);
               } catch (a) {
-                var s = n.return;
-                throw s !== void 0 && t(s.call(n)), a;
+                var c = n.return;
+                throw c !== void 0 && t(c.call(n)), a;
               }
             };
           }
@@ -447,7 +479,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \**************************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/well-known-symbol */
               "./node_modules/core-js/internals/well-known-symbol.js"
@@ -468,7 +500,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               });
             } catch {
             }
-            r.exports = function(s, a) {
+            r.exports = function(c, a) {
               if (!a && !o) return !1;
               var d = !1;
               try {
@@ -479,7 +511,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
                       return { done: d = !0 };
                     }
                   };
-                }, s(h);
+                }, c(h);
               } catch {
               }
               return d;
@@ -493,7 +525,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*******************************************************/
           /*! no static exports found */
           /***/
-          function(r, c) {
+          function(r, s) {
             var e = {}.toString;
             r.exports = function(t) {
               return e.call(t).slice(8, -1);
@@ -507,7 +539,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \***************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/classof-raw */
               "./node_modules/core-js/internals/classof-raw.js"
@@ -516,15 +548,15 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               "./node_modules/core-js/internals/well-known-symbol.js"
             ), o = n("toStringTag"), l = t(/* @__PURE__ */ function() {
               return arguments;
-            }()) == "Arguments", i = function(s, a) {
+            }()) == "Arguments", i = function(c, a) {
               try {
-                return s[a];
+                return c[a];
               } catch {
               }
             };
-            r.exports = function(s) {
+            r.exports = function(c) {
               var a, d, h;
-              return s === void 0 ? "Undefined" : s === null ? "Null" : typeof (d = i(a = Object(s), o)) == "string" ? d : l ? t(a) : (h = t(a)) == "Object" && typeof a.callee == "function" ? "Arguments" : h;
+              return c === void 0 ? "Undefined" : c === null ? "Null" : typeof (d = i(a = Object(c), o)) == "string" ? d : l ? t(a) : (h = t(a)) == "Object" && typeof a.callee == "function" ? "Arguments" : h;
             };
           }
         ),
@@ -535,7 +567,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \***********************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/has */
               "./node_modules/core-js/internals/has.js"
@@ -549,10 +581,10 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               /*! ../internals/object-define-property */
               "./node_modules/core-js/internals/object-define-property.js"
             );
-            r.exports = function(i, s) {
-              for (var a = n(s), d = l.f, h = o.f, y = 0; y < a.length; y++) {
+            r.exports = function(i, c) {
+              for (var a = n(c), d = l.f, h = o.f, y = 0; y < a.length; y++) {
                 var p = a[y];
-                t(i, p) || d(i, p, h(s, p));
+                t(i, p) || d(i, p, h(c, p));
               }
             };
           }
@@ -564,7 +596,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \********************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/fails */
               "./node_modules/core-js/internals/fails.js"
@@ -583,7 +615,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \***********************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/iterators-core */
               "./node_modules/core-js/internals/iterators-core.js"
@@ -599,12 +631,12 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), i = e(
               /*! ../internals/iterators */
               "./node_modules/core-js/internals/iterators.js"
-            ), s = function() {
+            ), c = function() {
               return this;
             };
             r.exports = function(a, d, h) {
               var y = d + " Iterator";
-              return a.prototype = n(t, { next: o(1, h) }), l(a, y, !1, !0), i[y] = s, a;
+              return a.prototype = n(t, { next: o(1, h) }), l(a, y, !1, !0), i[y] = c, a;
             };
           }
         ),
@@ -615,7 +647,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \**********************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c) {
+          function(r, s) {
             r.exports = function(e, t) {
               return {
                 enumerable: !(e & 1),
@@ -633,7 +665,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \***********************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/to-primitive */
               "./node_modules/core-js/internals/to-primitive.js"
@@ -644,9 +676,9 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               /*! ../internals/create-property-descriptor */
               "./node_modules/core-js/internals/create-property-descriptor.js"
             );
-            r.exports = function(l, i, s) {
+            r.exports = function(l, i, c) {
               var a = t(i);
-              a in l ? n.f(l, a, o(0, s)) : l[a] = s;
+              a in l ? n.f(l, a, o(0, c)) : l[a] = c;
             };
           }
         ),
@@ -657,7 +689,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \***********************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/export */
               "./node_modules/core-js/internals/export.js"
@@ -673,7 +705,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), i = e(
               /*! ../internals/set-to-string-tag */
               "./node_modules/core-js/internals/set-to-string-tag.js"
-            ), s = e(
+            ), c = e(
               /*! ../internals/hide */
               "./node_modules/core-js/internals/hide.js"
             ), a = e(
@@ -694,40 +726,40 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), f = p.IteratorPrototype, x = p.BUGGY_SAFARI_ITERATORS, u = d("iterator"), m = "keys", v = "values", b = "entries", g = function() {
               return this;
             };
-            r.exports = function(j, M, O, $, T, J, K) {
-              n(O, M, $);
-              var F = function(z) {
-                if (z === T && H) return H;
-                if (!x && z in w) return w[z];
-                switch (z) {
+            r.exports = function(j, M, P, q, R, _, Y) {
+              n(P, M, q);
+              var k = function(H) {
+                if (H === R && T) return T;
+                if (!x && H in z) return z[H];
+                switch (H) {
                   case m:
                     return function() {
-                      return new O(this, z);
+                      return new P(this, H);
                     };
                   case v:
                     return function() {
-                      return new O(this, z);
+                      return new P(this, H);
                     };
                   case b:
                     return function() {
-                      return new O(this, z);
+                      return new P(this, H);
                     };
                 }
                 return function() {
-                  return new O(this);
+                  return new P(this);
                 };
-              }, N = M + " Iterator", G = !1, w = j.prototype, V = w[u] || w["@@iterator"] || T && w[T], H = !x && V || F(T), B = M == "Array" && w.entries || V, I, R, C;
-              if (B && (I = o(B.call(new j())), f !== Object.prototype && I.next && (!h && o(I) !== f && (l ? l(I, f) : typeof I[u] != "function" && s(I, u, g)), i(I, N, !0, !0), h && (y[N] = g))), T == v && V && V.name !== v && (G = !0, H = function() {
-                return V.call(this);
-              }), (!h || K) && w[u] !== H && s(w, u, H), y[M] = H, T)
-                if (R = {
-                  values: F(v),
-                  keys: J ? H : F(m),
-                  entries: F(b)
-                }, K) for (C in R)
-                  (x || G || !(C in w)) && a(w, C, R[C]);
-                else t({ target: M, proto: !0, forced: x || G }, R);
-              return R;
+              }, W = M + " Iterator", K = !1, z = j.prototype, L = z[u] || z["@@iterator"] || R && z[R], T = !x && L || k(R), U = M == "Array" && z.entries || L, V, F, G;
+              if (U && (V = o(U.call(new j())), f !== Object.prototype && V.next && (!h && o(V) !== f && (l ? l(V, f) : typeof V[u] != "function" && c(V, u, g)), i(V, W, !0, !0), h && (y[W] = g))), R == v && L && L.name !== v && (K = !0, T = function() {
+                return L.call(this);
+              }), (!h || Y) && z[u] !== T && c(z, u, T), y[M] = T, R)
+                if (F = {
+                  values: k(v),
+                  keys: _ ? T : k(m),
+                  entries: k(b)
+                }, Y) for (G in F)
+                  (x || K || !(G in z)) && a(z, G, F[G]);
+                else t({ target: M, proto: !0, forced: x || K }, F);
+              return F;
             };
           }
         ),
@@ -738,7 +770,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*******************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/fails */
               "./node_modules/core-js/internals/fails.js"
@@ -757,7 +789,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*******************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/global */
               "./node_modules/core-js/internals/global.js"
@@ -777,7 +809,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*********************************************************/
           /*! no static exports found */
           /***/
-          function(r, c) {
+          function(r, s) {
             r.exports = [
               "constructor",
               "hasOwnProperty",
@@ -796,7 +828,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \**************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/global */
               "./node_modules/core-js/internals/global.js"
@@ -812,7 +844,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), i = e(
               /*! ../internals/set-global */
               "./node_modules/core-js/internals/set-global.js"
-            ), s = e(
+            ), c = e(
               /*! ../internals/copy-constructor-properties */
               "./node_modules/core-js/internals/copy-constructor-properties.js"
             ), a = e(
@@ -824,7 +856,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               if (p ? u = t : f ? u = t[y] || i(y, {}) : u = (t[y] || {}).prototype, u) for (m in h) {
                 if (b = h[m], d.noTargetGet ? (g = n(u, m), v = g && g.value) : v = u[m], x = a(p ? m : y + (f ? "." : "#") + m, d.forced), !x && v !== void 0) {
                   if (typeof b == typeof v) continue;
-                  s(b, v);
+                  c(b, v);
                 }
                 (d.sham || v && v.sham) && o(b, "sham", !0), l(u, m, b, d);
               }
@@ -838,7 +870,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*************************************************/
           /*! no static exports found */
           /***/
-          function(r, c) {
+          function(r, s) {
             r.exports = function(e) {
               try {
                 return !!e();
@@ -855,7 +887,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \**************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/shared */
               "./node_modules/core-js/internals/shared.js"
@@ -870,7 +902,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \***************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/classof */
               "./node_modules/core-js/internals/classof.js"
@@ -893,7 +925,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \**************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             (function(t) {
               var n = "object", o = function(l) {
                 return l && l.Math == Math && l;
@@ -914,7 +946,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \***********************************************/
           /*! no static exports found */
           /***/
-          function(r, c) {
+          function(r, s) {
             var e = {}.hasOwnProperty;
             r.exports = function(t, n) {
               return e.call(t, n);
@@ -928,7 +960,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*******************************************************/
           /*! no static exports found */
           /***/
-          function(r, c) {
+          function(r, s) {
             r.exports = {};
           }
         ),
@@ -939,7 +971,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/descriptors */
               "./node_modules/core-js/internals/descriptors.js"
@@ -950,10 +982,10 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               /*! ../internals/create-property-descriptor */
               "./node_modules/core-js/internals/create-property-descriptor.js"
             );
-            r.exports = t ? function(l, i, s) {
-              return n.f(l, i, o(1, s));
-            } : function(l, i, s) {
-              return l[i] = s, l;
+            r.exports = t ? function(l, i, c) {
+              return n.f(l, i, o(1, c));
+            } : function(l, i, c) {
+              return l[i] = c, l;
             };
           }
         ),
@@ -964,7 +996,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/global */
               "./node_modules/core-js/internals/global.js"
@@ -979,7 +1011,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \**********************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/descriptors */
               "./node_modules/core-js/internals/descriptors.js"
@@ -1006,7 +1038,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \**********************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/fails */
               "./node_modules/core-js/internals/fails.js"
@@ -1028,7 +1060,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \**********************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/native-weak-map */
               "./node_modules/core-js/internals/native-weak-map.js"
@@ -1044,7 +1076,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), i = e(
               /*! ../internals/has */
               "./node_modules/core-js/internals/has.js"
-            ), s = e(
+            ), c = e(
               /*! ../internals/shared-key */
               "./node_modules/core-js/internals/shared-key.js"
             ), a = e(
@@ -1054,10 +1086,10 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               return p(j) ? y(j) : h(j, {});
             }, x = function(j) {
               return function(M) {
-                var O;
-                if (!o(M) || (O = y(M)).type !== j)
+                var P;
+                if (!o(M) || (P = y(M)).type !== j)
                   throw TypeError("Incompatible receiver, " + j + " required");
-                return O;
+                return P;
               };
             };
             if (t) {
@@ -1070,7 +1102,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
                 return v.call(u, j);
               };
             } else {
-              var g = s("state");
+              var g = c("state");
               a[g] = !0, h = function(j, M) {
                 return l(j, g, M), M;
               }, y = function(j) {
@@ -1095,7 +1127,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \********************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/well-known-symbol */
               "./node_modules/core-js/internals/well-known-symbol.js"
@@ -1115,16 +1147,16 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*****************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/fails */
               "./node_modules/core-js/internals/fails.js"
             ), n = /#|\.prototype\./, o = function(d, h) {
               var y = i[l(d)];
-              return y == a ? !0 : y == s ? !1 : typeof h == "function" ? t(h) : !!h;
+              return y == a ? !0 : y == c ? !1 : typeof h == "function" ? t(h) : !!h;
             }, l = o.normalize = function(d) {
               return String(d).replace(n, ".").toLowerCase();
-            }, i = o.data = {}, s = o.NATIVE = "N", a = o.POLYFILL = "P";
+            }, i = o.data = {}, c = o.NATIVE = "N", a = o.POLYFILL = "P";
             r.exports = o;
           }
         ),
@@ -1135,7 +1167,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*****************************************************/
           /*! no static exports found */
           /***/
-          function(r, c) {
+          function(r, s) {
             r.exports = function(e) {
               return typeof e == "object" ? e !== null : typeof e == "function";
             };
@@ -1148,7 +1180,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \***************************************************/
           /*! no static exports found */
           /***/
-          function(r, c) {
+          function(r, s) {
             r.exports = !1;
           }
         ),
@@ -1159,7 +1191,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \**********************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/object-get-prototype-of */
               "./node_modules/core-js/internals/object-get-prototype-of.js"
@@ -1175,10 +1207,10 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), i = e(
               /*! ../internals/is-pure */
               "./node_modules/core-js/internals/is-pure.js"
-            ), s = l("iterator"), a = !1, d = function() {
+            ), c = l("iterator"), a = !1, d = function() {
               return this;
             }, h, y, p;
-            [].keys && (p = [].keys(), "next" in p ? (y = t(t(p)), y !== Object.prototype && (h = y)) : a = !0), h == null && (h = {}), !i && !o(h, s) && n(h, s, d), r.exports = {
+            [].keys && (p = [].keys(), "next" in p ? (y = t(t(p)), y !== Object.prototype && (h = y)) : a = !0), h == null && (h = {}), !i && !o(h, c) && n(h, c, d), r.exports = {
               IteratorPrototype: h,
               BUGGY_SAFARI_ITERATORS: a
             };
@@ -1191,7 +1223,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*****************************************************/
           /*! no static exports found */
           /***/
-          function(r, c) {
+          function(r, s) {
             r.exports = {};
           }
         ),
@@ -1202,7 +1234,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*********************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/fails */
               "./node_modules/core-js/internals/fails.js"
@@ -1219,7 +1251,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \***********************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/global */
               "./node_modules/core-js/internals/global.js"
@@ -1237,7 +1269,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*********************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/an-object */
               "./node_modules/core-js/internals/an-object.js"
@@ -1253,7 +1285,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), i = e(
               /*! ../internals/html */
               "./node_modules/core-js/internals/html.js"
-            ), s = e(
+            ), c = e(
               /*! ../internals/document-create-element */
               "./node_modules/core-js/internals/document-create-element.js"
             ), a = e(
@@ -1261,7 +1293,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               "./node_modules/core-js/internals/shared-key.js"
             ), d = a("IE_PROTO"), h = "prototype", y = function() {
             }, p = function() {
-              var f = s("iframe"), x = o.length, u = "<", m = "script", v = ">", b = "java" + m + ":", g;
+              var f = c("iframe"), x = o.length, u = "<", m = "script", v = ">", b = "java" + m + ":", g;
               for (f.style.display = "none", i.appendChild(f), f.src = String(b), g = f.contentWindow.document, g.open(), g.write(u + m + v + "document.F=Object" + u + "/" + m + v), g.close(), p = g.F; x--; ) delete p[h][o[x]];
               return p();
             };
@@ -1278,7 +1310,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \********************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/descriptors */
               "./node_modules/core-js/internals/descriptors.js"
@@ -1292,10 +1324,10 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               /*! ../internals/object-keys */
               "./node_modules/core-js/internals/object-keys.js"
             );
-            r.exports = t ? Object.defineProperties : function(s, a) {
-              o(s);
-              for (var d = l(a), h = d.length, y = 0, p; h > y; ) n.f(s, p = d[y++], a[p]);
-              return s;
+            r.exports = t ? Object.defineProperties : function(c, a) {
+              o(c);
+              for (var d = l(a), h = d.length, y = 0, p; h > y; ) n.f(c, p = d[y++], a[p]);
+              return c;
             };
           }
         ),
@@ -1306,7 +1338,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \******************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/descriptors */
               "./node_modules/core-js/internals/descriptors.js"
@@ -1320,7 +1352,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               /*! ../internals/to-primitive */
               "./node_modules/core-js/internals/to-primitive.js"
             ), i = Object.defineProperty;
-            c.f = t ? i : function(a, d, h) {
+            s.f = t ? i : function(a, d, h) {
               if (o(a), d = l(d, !0), o(h), n) try {
                 return i(a, d, h);
               } catch {
@@ -1337,7 +1369,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \******************************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/descriptors */
               "./node_modules/core-js/internals/descriptors.js"
@@ -1353,19 +1385,19 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), i = e(
               /*! ../internals/to-primitive */
               "./node_modules/core-js/internals/to-primitive.js"
-            ), s = e(
+            ), c = e(
               /*! ../internals/has */
               "./node_modules/core-js/internals/has.js"
             ), a = e(
               /*! ../internals/ie8-dom-define */
               "./node_modules/core-js/internals/ie8-dom-define.js"
             ), d = Object.getOwnPropertyDescriptor;
-            c.f = t ? d : function(y, p) {
+            s.f = t ? d : function(y, p) {
               if (y = l(y), p = i(p, !0), a) try {
                 return d(y, p);
               } catch {
               }
-              if (s(y, p)) return o(!n.f.call(y, p), y[p]);
+              if (c(y, p)) return o(!n.f.call(y, p), y[p]);
             };
           }
         ),
@@ -1376,7 +1408,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*************************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/object-keys-internal */
               "./node_modules/core-js/internals/object-keys-internal.js"
@@ -1384,7 +1416,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               /*! ../internals/enum-bug-keys */
               "./node_modules/core-js/internals/enum-bug-keys.js"
             ), o = n.concat("length", "prototype");
-            c.f = Object.getOwnPropertyNames || function(i) {
+            s.f = Object.getOwnPropertyNames || function(i) {
               return t(i, o);
             };
           }
@@ -1396,8 +1428,8 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \***************************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c) {
-            c.f = Object.getOwnPropertySymbols;
+          function(r, s) {
+            s.f = Object.getOwnPropertySymbols;
           }
         ),
         /***/
@@ -1407,7 +1439,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*******************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/has */
               "./node_modules/core-js/internals/has.js"
@@ -1420,9 +1452,9 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), l = e(
               /*! ../internals/correct-prototype-getter */
               "./node_modules/core-js/internals/correct-prototype-getter.js"
-            ), i = o("IE_PROTO"), s = Object.prototype;
+            ), i = o("IE_PROTO"), c = Object.prototype;
             r.exports = l ? Object.getPrototypeOf : function(a) {
-              return a = n(a), t(a, i) ? a[i] : typeof a.constructor == "function" && a instanceof a.constructor ? a.constructor.prototype : a instanceof Object ? s : null;
+              return a = n(a), t(a, i) ? a[i] : typeof a.constructor == "function" && a instanceof a.constructor ? a.constructor.prototype : a instanceof Object ? c : null;
             };
           }
         ),
@@ -1433,7 +1465,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \****************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/has */
               "./node_modules/core-js/internals/has.js"
@@ -1447,8 +1479,8 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               /*! ../internals/hidden-keys */
               "./node_modules/core-js/internals/hidden-keys.js"
             ), i = o(!1);
-            r.exports = function(s, a) {
-              var d = n(s), h = 0, y = [], p;
+            r.exports = function(c, a) {
+              var d = n(c), h = 0, y = [], p;
               for (p in d) !t(l, p) && t(d, p) && y.push(p);
               for (; a.length > h; ) t(d, p = a[h++]) && (~i(y, p) || y.push(p));
               return y;
@@ -1462,7 +1494,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*******************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/object-keys-internal */
               "./node_modules/core-js/internals/object-keys-internal.js"
@@ -1482,11 +1514,11 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*************************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = {}.propertyIsEnumerable, n = Object.getOwnPropertyDescriptor, o = n && !t.call({ 1: 2 }, 1);
-            c.f = o ? function(i) {
-              var s = n(this, i);
-              return !!s && s.enumerable;
+            s.f = o ? function(i) {
+              var c = n(this, i);
+              return !!c && c.enumerable;
             } : t;
           }
         ),
@@ -1497,7 +1529,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*******************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/validate-set-prototype-of-arguments */
               "./node_modules/core-js/internals/validate-set-prototype-of-arguments.js"
@@ -1508,8 +1540,8 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
                 l = Object.getOwnPropertyDescriptor(Object.prototype, "__proto__").set, l.call(o, []), n = o instanceof Array;
               } catch {
               }
-              return function(s, a) {
-                return t(s, a), n ? l.call(s, a) : s.__proto__ = a, s;
+              return function(c, a) {
+                return t(c, a), n ? l.call(c, a) : c.__proto__ = a, c;
               };
             }() : void 0);
           }
@@ -1521,7 +1553,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \****************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/global */
               "./node_modules/core-js/internals/global.js"
@@ -1548,7 +1580,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             r.exports = e(
               /*! ../internals/global */
               "./node_modules/core-js/internals/global.js"
@@ -1562,7 +1594,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \****************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/global */
               "./node_modules/core-js/internals/global.js"
@@ -1578,15 +1610,15 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), i = e(
               /*! ../internals/set-global */
               "./node_modules/core-js/internals/set-global.js"
-            ), s = e(
+            ), c = e(
               /*! ../internals/function-to-string */
               "./node_modules/core-js/internals/function-to-string.js"
             ), a = e(
               /*! ../internals/internal-state */
               "./node_modules/core-js/internals/internal-state.js"
-            ), d = a.get, h = a.enforce, y = String(s).split("toString");
+            ), d = a.get, h = a.enforce, y = String(c).split("toString");
             n("inspectSource", function(p) {
-              return s.call(p);
+              return c.call(p);
             }), (r.exports = function(p, f, x, u) {
               var m = u ? !!u.unsafe : !1, v = u ? !!u.enumerable : !1, b = u ? !!u.noTargetGet : !1;
               if (typeof x == "function" && (typeof f == "string" && !l(x, "name") && o(x, "name", f), h(x).source = y.join(typeof f == "string" ? f : "")), p === t) {
@@ -1595,7 +1627,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               } else m ? !b && p[f] && (v = !0) : delete p[f];
               v ? p[f] = x : o(p, f, x);
             })(Function.prototype, "toString", function() {
-              return typeof this == "function" && d(this).source || s.call(this);
+              return typeof this == "function" && d(this).source || c.call(this);
             });
           }
         ),
@@ -1606,7 +1638,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \********************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c) {
+          function(r, s) {
             r.exports = function(e) {
               if (e == null) throw TypeError("Can't call method on " + e);
               return e;
@@ -1620,7 +1652,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \******************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/global */
               "./node_modules/core-js/internals/global.js"
@@ -1645,7 +1677,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/object-define-property */
               "./node_modules/core-js/internals/object-define-property.js"
@@ -1656,8 +1688,8 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               /*! ../internals/well-known-symbol */
               "./node_modules/core-js/internals/well-known-symbol.js"
             ), l = o("toStringTag");
-            r.exports = function(i, s, a) {
-              i && !n(i = a ? i : i.prototype, l) && t(i, l, { configurable: !0, value: s });
+            r.exports = function(i, c, a) {
+              i && !n(i = a ? i : i.prototype, l) && t(i, l, { configurable: !0, value: c });
             };
           }
         ),
@@ -1668,7 +1700,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \******************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/shared */
               "./node_modules/core-js/internals/shared.js"
@@ -1688,7 +1720,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \**************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/global */
               "./node_modules/core-js/internals/global.js"
@@ -1699,8 +1731,8 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               /*! ../internals/is-pure */
               "./node_modules/core-js/internals/is-pure.js"
             ), l = "__core-js_shared__", i = t[l] || n(l, {});
-            (r.exports = function(s, a) {
-              return i[s] || (i[s] = a !== void 0 ? a : {});
+            (r.exports = function(c, a) {
+              return i[c] || (i[c] = a !== void 0 ? a : {});
             })("versions", []).push({
               version: "3.1.3",
               mode: o ? "pure" : "global",
@@ -1715,7 +1747,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*****************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/to-integer */
               "./node_modules/core-js/internals/to-integer.js"
@@ -1724,8 +1756,8 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               "./node_modules/core-js/internals/require-object-coercible.js"
             );
             r.exports = function(o, l, i) {
-              var s = String(n(o)), a = t(l), d = s.length, h, y;
-              return a < 0 || a >= d ? i ? "" : void 0 : (h = s.charCodeAt(a), h < 55296 || h > 56319 || a + 1 === d || (y = s.charCodeAt(a + 1)) < 56320 || y > 57343 ? i ? s.charAt(a) : h : i ? s.slice(a, a + 2) : (h - 55296 << 10) + (y - 56320) + 65536);
+              var c = String(n(o)), a = t(l), d = c.length, h, y;
+              return a < 0 || a >= d ? i ? "" : void 0 : (h = c.charCodeAt(a), h < 55296 || h > 56319 || a + 1 === d || (y = c.charCodeAt(a + 1)) < 56320 || y > 57343 ? i ? c.charAt(a) : h : i ? c.slice(a, a + 2) : (h - 55296 << 10) + (y - 56320) + 65536);
             };
           }
         ),
@@ -1736,14 +1768,14 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/to-integer */
               "./node_modules/core-js/internals/to-integer.js"
             ), n = Math.max, o = Math.min;
             r.exports = function(l, i) {
-              var s = t(l);
-              return s < 0 ? n(s + i, 0) : o(s, i);
+              var c = t(l);
+              return c < 0 ? n(c + i, 0) : o(c, i);
             };
           }
         ),
@@ -1754,7 +1786,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/indexed-object */
               "./node_modules/core-js/internals/indexed-object.js"
@@ -1774,7 +1806,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \******************************************************/
           /*! no static exports found */
           /***/
-          function(r, c) {
+          function(r, s) {
             var e = Math.ceil, t = Math.floor;
             r.exports = function(n) {
               return isNaN(n = +n) ? 0 : (n > 0 ? t : e)(n);
@@ -1788,7 +1820,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*****************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/to-integer */
               "./node_modules/core-js/internals/to-integer.js"
@@ -1805,7 +1837,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*****************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/require-object-coercible */
               "./node_modules/core-js/internals/require-object-coercible.js"
@@ -1822,7 +1854,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \********************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/is-object */
               "./node_modules/core-js/internals/is-object.js"
@@ -1842,7 +1874,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \***********************************************/
           /*! no static exports found */
           /***/
-          function(r, c) {
+          function(r, s) {
             var e = 0, t = Math.random();
             r.exports = function(n) {
               return "Symbol(".concat(n === void 0 ? "" : n, ")_", (++e + t).toString(36));
@@ -1856,7 +1888,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*******************************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/is-object */
               "./node_modules/core-js/internals/is-object.js"
@@ -1877,7 +1909,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/global */
               "./node_modules/core-js/internals/global.js"
@@ -1890,9 +1922,9 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), l = e(
               /*! ../internals/native-symbol */
               "./node_modules/core-js/internals/native-symbol.js"
-            ), i = t.Symbol, s = n("wks");
+            ), i = t.Symbol, c = n("wks");
             r.exports = function(a) {
-              return s[a] || (s[a] = l && i[a] || (l ? i : o)("Symbol." + a));
+              return c[a] || (c[a] = l && i[a] || (l ? i : o)("Symbol." + a));
             };
           }
         ),
@@ -1903,7 +1935,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*******************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/export */
               "./node_modules/core-js/internals/export.js"
@@ -1928,7 +1960,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \************************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ../internals/string-at */
               "./node_modules/core-js/internals/string-at.js"
@@ -1938,7 +1970,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), o = e(
               /*! ../internals/define-iterator */
               "./node_modules/core-js/internals/define-iterator.js"
-            ), l = "String Iterator", i = n.set, s = n.getterFor(l);
+            ), l = "String Iterator", i = n.set, c = n.getterFor(l);
             o(String, "String", function(a) {
               i(this, {
                 type: l,
@@ -1946,7 +1978,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
                 index: 0
               });
             }, function() {
-              var d = s(this), h = d.string, y = d.index, p;
+              var d = c(this), h = d.string, y = d.index, p;
               return y >= h.length ? { value: void 0, done: !0 } : (p = t(h, y, !0), d.index += p.length, { value: p, done: !1 });
             });
           }
@@ -1958,7 +1990,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \***********************************/
           /*! no static exports found */
           /***/
-          function(r, c) {
+          function(r, s) {
             var e;
             e = /* @__PURE__ */ function() {
               return this;
@@ -1989,8 +2021,8 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \*********************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
-            Object.defineProperty(c, "__esModule", {
+          function(r, s, e) {
+            Object.defineProperty(s, "__esModule", {
               value: !0
             });
             var t = Object.assign || function(p) {
@@ -2016,7 +2048,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), l = a(o), i = e(
               /*! ./default-attrs.json */
               "./src/default-attrs.json"
-            ), s = a(i);
+            ), c = a(i);
             function a(p) {
               return p && p.__esModule ? p : { default: p };
             }
@@ -2027,7 +2059,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             var h = function() {
               function p(f, x) {
                 var u = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : [];
-                d(this, p), this.name = f, this.contents = x, this.tags = u, this.attrs = t({}, s.default, { class: "feather feather-" + f });
+                d(this, p), this.name = f, this.contents = x, this.tags = u, this.attrs = t({}, c.default, { class: "feather feather-" + f });
               }
               return n(p, [{
                 key: "toSvg",
@@ -2055,7 +2087,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
                 return f + '="' + p[f] + '"';
               }).join(" ");
             }
-            c.default = h;
+            s.default = h;
           }
         ),
         /***/
@@ -2065,8 +2097,8 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \**********************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
-            Object.defineProperty(c, "__esModule", {
+          function(r, s, e) {
+            Object.defineProperty(s, "__esModule", {
               value: !0
             });
             var t = e(
@@ -2078,12 +2110,12 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), l = a(o), i = e(
               /*! ./tags.json */
               "./src/tags.json"
-            ), s = a(i);
+            ), c = a(i);
             function a(d) {
               return d && d.__esModule ? d : { default: d };
             }
-            c.default = Object.keys(l.default).map(function(d) {
-              return new n.default(d, l.default[d], s.default[d]);
+            s.default = Object.keys(l.default).map(function(d) {
+              return new n.default(d, l.default[d], c.default[d]);
             }).reduce(function(d, h) {
               return d[h.name] = h, d;
             }, {});
@@ -2096,7 +2128,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \**********************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             var t = e(
               /*! ./icons */
               "./src/icons.js"
@@ -2106,11 +2138,11 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             ), l = a(o), i = e(
               /*! ./replace */
               "./src/replace.js"
-            ), s = a(i);
+            ), c = a(i);
             function a(d) {
               return d && d.__esModule ? d : { default: d };
             }
-            r.exports = { icons: n.default, toSvg: l.default, replace: s.default };
+            r.exports = { icons: n.default, toSvg: l.default, replace: c.default };
           }
         ),
         /***/
@@ -2120,8 +2152,8 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
-            Object.defineProperty(c, "__esModule", {
+          function(r, s, e) {
+            Object.defineProperty(s, "__esModule", {
               value: !0
             });
             var t = Object.assign || function(y) {
@@ -2134,11 +2166,11 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             }, n = e(
               /*! classnames/dedupe */
               "./node_modules/classnames/dedupe.js"
-            ), o = s(n), l = e(
+            ), o = c(n), l = e(
               /*! ./icons */
               "./src/icons.js"
-            ), i = s(l);
-            function s(y) {
+            ), i = c(l);
+            function c(y) {
               return y && y.__esModule ? y : { default: y };
             }
             function a() {
@@ -2164,7 +2196,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
                 return p[f.name] = f.value, p;
               }, {});
             }
-            c.default = a;
+            s.default = a;
           }
         ),
         /***/
@@ -2185,8 +2217,8 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \***********************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
-            Object.defineProperty(c, "__esModule", {
+          function(r, s, e) {
+            Object.defineProperty(s, "__esModule", {
               value: !0
             });
             var t = e(
@@ -2197,14 +2229,14 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
               return i && i.__esModule ? i : { default: i };
             }
             function l(i) {
-              var s = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+              var c = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
               if (console.warn("feather.toSvg() is deprecated. Please use feather.icons[name].toSvg() instead."), !i)
                 throw new Error("The required `key` (icon name) parameter is missing.");
               if (!n.default[i])
                 throw new Error("No icon matching '" + i + "'. See the complete list of icons at https://feathericons.com");
-              return n.default[i].toSvg(s);
+              return n.default[i].toSvg(c);
             }
-            c.default = l;
+            s.default = l;
           }
         ),
         /***/
@@ -2214,7 +2246,7 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
             \**************************************************/
           /*! no static exports found */
           /***/
-          function(r, c, e) {
+          function(r, s, e) {
             e(
               /*! core-js/es/array/from */
               "./node_modules/core-js/es/array/from.js"
@@ -2228,7 +2260,46 @@ var te = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : t
       })
     );
   });
-})(re);
+})(Z);
+var se = Z.exports;
+const ce = B`
+svg {
+    display: block;
+  }
+`;
+var pe = Object.defineProperty, ye = Object.getOwnPropertyDescriptor, D = (O, w, r, s) => {
+  for (var e = s > 1 ? void 0 : s ? ye(w, r) : w, t = O.length - 1, n; t >= 0; t--)
+    (n = O[t]) && (e = (s ? n(w, r, e) : n(e)) || e);
+  return s && e && pe(w, r, e), e;
+};
+let E = class extends C {
+  constructor() {
+    super(...arguments), this.icon = "", this.stroke = 2, this.size = 24, this.fitHeight = !1;
+  }
+  getHeight() {
+    return this.fitHeight ? "100%" : this.size;
+  }
+  render() {
+    return te`${re(se.icons[this.icon].toSvg({ "stroke-width": this.stroke, height: this.getHeight(), width: "auto", color: "currentColor" }))}`;
+  }
+};
+E.styles = [C.styles, ce];
+D([
+  A({ reflect: !0 })
+], E.prototype, "icon", 2);
+D([
+  A({ type: Number, reflect: !0 })
+], E.prototype, "stroke", 2);
+D([
+  A({ type: Number, reflect: !0 })
+], E.prototype, "size", 2);
+D([
+  A({ type: Boolean })
+], E.prototype, "fitHeight", 2);
+E = D([
+  X("q-icon")
+], E);
 export {
-  S as QButton
+  S as QButton,
+  E as QIcon
 };

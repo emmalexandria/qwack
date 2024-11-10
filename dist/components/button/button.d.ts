@@ -5,7 +5,9 @@ export declare class QButton extends QBase {
     size: "small" | "regular" | "large";
     primary: boolean;
     href: string;
+    type: "button" | "submit";
     disabled: boolean;
+    suffix: string;
     private isLink;
     static styles: CSSResultGroup;
     render(): import('lit').TemplateResult;

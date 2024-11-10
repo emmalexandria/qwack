@@ -9,7 +9,12 @@
         {
           "kind": "variable",
           "name": "S",
-          "default": "class extends D { constructor() { super(...arguments), this.label = \"Button\", this.size = \"regular\", this.primary = !1, this.href = \"\", this.disabled = !1; } isLink() { return !!this.href; } render() { const P = this.isLink(), A = P ? W`a` : W`button`; return Z` <${A} class=${X({ \"button--base\": !0, \"button--default\": !this.primary, \"button--primary\": this.primary, \"button--small\": this.size == \"small\", \"button--regular\": this.size == \"regular\", \"button--large\": this.size == \"large\", \"button--disabled\": this.disabled })} href=${P && !this.disabled ? this.href : void 0}> ${this.label} </${A}> `; } }"
+          "default": "class extends C { constructor() { super(...arguments), this.label = \"Button\", this.size = \"regular\", this.primary = !1, this.href = \"\", this.type = \"button\", this.disabled = !1, this.suffix = \"\"; } isLink() { return !!this.href; } render() { const O = this.isLink(), w = O ? Q`a` : Q`button`; return N` <${w} class=${ee({ \"button--base\": !0, \"button--default\": !this.primary, \"button--primary\": this.primary, \"button--small\": this.size == \"small\", \"button--regular\": this.size == \"regular\", \"button--large\": this.size == \"large\", \"button--disabled\": this.disabled })} href=${O && !this.disabled ? this.href : void 0} > ${this.label} ${this.suffix ? N`<span class=\"button--icon\"><q-icon fitHeight icon=\"${this.suffix}\"></span>` : N``} </${w}> `; } }"
+        },
+        {
+          "kind": "variable",
+          "name": "E",
+          "default": "class extends C { constructor() { super(...arguments), this.icon = \"\", this.stroke = 2, this.size = 24, this.fitHeight = !1; } getHeight() { return this.fitHeight ? \"100%\" : this.size; } render() { return te`${re(se.icons[this.icon].toSvg({ \"stroke-width\": this.stroke, height: this.getHeight(), width: \"auto\", color: \"currentColor\" }))}`; } }"
         }
       ],
       "exports": [
@@ -18,6 +23,14 @@
           "name": "QButton",
           "declaration": {
             "name": "S",
+            "module": "dist/qwack.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "QIcon",
+          "declaration": {
+            "name": "E",
             "module": "dist/qwack.js"
           }
         }
@@ -34,6 +47,14 @@
           "declaration": {
             "name": "QButton",
             "module": "./components/button/button"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "QIcon",
+          "declaration": {
+            "name": "QIcon",
+            "module": "\"./components/icon/icon\""
           }
         }
       ]
@@ -84,6 +105,14 @@
             "text": "StoryObj"
           },
           "default": "{ args: { size: \"small\", primary: false, disabled: false }, argTypes: { size: { control: \"select\", options: [\"small\", \"regular\", \"large\"], } } }"
+        },
+        {
+          "kind": "variable",
+          "name": "IconSuffix",
+          "type": {
+            "text": "StoryObj"
+          },
+          "default": "{ args: { suffix: \"arrow-right\", size: \"small\", primary: false, disabled: false }, argTypes: { size: { control: \"select\", options: [\"small\", \"regular\", \"large\"], } } }"
         }
       ],
       "exports": [
@@ -100,6 +129,14 @@
           "name": "Default",
           "declaration": {
             "name": "Default",
+            "module": "src/components/button/button.stories.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "IconSuffix",
+          "declaration": {
+            "name": "IconSuffix",
             "module": "src/components/button/button.stories.ts"
           }
         }
@@ -170,12 +207,32 @@
             },
             {
               "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "\"button\" | \"submit\""
+              },
+              "default": "\"button\"",
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "field",
               "name": "disabled",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
               "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "suffix",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\"",
+              "attribute": "suffix",
               "reflects": true
             },
             {
@@ -218,12 +275,28 @@
               "fieldName": "href"
             },
             {
+              "name": "type",
+              "type": {
+                "text": "\"button\" | \"submit\""
+              },
+              "default": "\"button\"",
+              "fieldName": "type"
+            },
+            {
               "name": "disabled",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
               "fieldName": "disabled"
+            },
+            {
+              "name": "suffix",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\"",
+              "fieldName": "suffix"
             }
           ],
           "superclass": {
@@ -249,6 +322,175 @@
           "declaration": {
             "name": "QButton",
             "module": "src/components/button/button.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/icon/icon.stories.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "meta",
+          "type": {
+            "text": "Meta"
+          },
+          "default": "{ title: \"Atoms/Icon\", component: \"q-icon\", args: { icon: \"home\" } }"
+        },
+        {
+          "kind": "variable",
+          "name": "Icon",
+          "type": {
+            "text": "StoryObj"
+          },
+          "default": "{ }"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "meta",
+            "module": "src/components/icon/icon.stories.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "src/components/icon/icon.stories.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/icon/icon.styles.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "src/components/icon/icon.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/icon/icon.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "QIcon",
+          "members": [
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\"",
+              "attribute": "icon",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "stroke",
+              "type": {
+                "text": "number"
+              },
+              "default": "2",
+              "attribute": "stroke",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "24",
+              "attribute": "size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "fitHeight",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "fitHeight"
+            },
+            {
+              "kind": "method",
+              "name": "getHeight",
+              "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\"",
+              "fieldName": "icon"
+            },
+            {
+              "name": "stroke",
+              "type": {
+                "text": "number"
+              },
+              "default": "2",
+              "fieldName": "stroke"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "24",
+              "fieldName": "size"
+            },
+            {
+              "name": "fitHeight",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "fitHeight"
+            }
+          ],
+          "superclass": {
+            "name": "QBase",
+            "module": "/src/components/base"
+          },
+          "tagName": "q-icon",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "QIcon",
+          "declaration": {
+            "name": "QIcon",
+            "module": "src/components/icon/icon.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "q-icon",
+          "declaration": {
+            "name": "QIcon",
+            "module": "src/components/icon/icon.ts"
           }
         }
       ]

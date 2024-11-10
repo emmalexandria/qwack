@@ -5,9 +5,9 @@
 	font-display: swap;
 
 	/* Typography variables */
-	--qwack-font-sm: 12px;
-	--qwack-font-r: 16px;
-	--qwack-font-lg: 18px;
+	--qwack-font-sm: 0.75rem;
+	--qwack-font-r: 1rem;
+	--qwack-font-lg: 1.125rem;
 	--qwack-font-sans: "Raleway", sans-serif;
 	--qwack-font-serif: "Cormorant Garamond", serif;
 

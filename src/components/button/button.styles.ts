@@ -8,6 +8,7 @@ export default css`
   
 
   .button--base {
+    color: var(--qwack-foreground);
     display: flex;
     flex-direction: row;
     gap: var(--qwack-space-1);

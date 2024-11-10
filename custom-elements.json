@@ -9,7 +9,12 @@
         {
           "kind": "variable",
           "name": "S",
-          "default": "class extends D { constructor() { super(...arguments), this.label = \"Button\", this.size = \"regular\", this.primary = !1, this.href = \"\", this.disabled = !1; } isLink() { return !!this.href; } render() { const P = this.isLink(), A = P ? W`a` : W`button`; return Z` <${A} class=${X({ \"button--base\": !0, \"button--default\": !this.primary, \"button--primary\": this.primary, \"button--small\": this.size == \"small\", \"button--regular\": this.size == \"regular\", \"button--large\": this.size == \"large\", \"button--disabled\": this.disabled })} href=${P && !this.disabled ? this.href : void 0}> ${this.label} </${A}> `; } }"
+          "default": "class extends C { constructor() { super(...arguments), this.label = \"Button\", this.size = \"regular\", this.primary = !1, this.href = \"\", this.type = \"button\", this.disabled = !1, this.suffix = \"\"; } isLink() { return !!this.href; } render() { const O = this.isLink(), w = O ? Q`a` : Q`button`; return N` <${w} class=${ee({ \"button--base\": !0, \"button--default\": !this.primary, \"button--primary\": this.primary, \"button--small\": this.size == \"small\", \"button--regular\": this.size == \"regular\", \"button--large\": this.size == \"large\", \"button--disabled\": this.disabled })} href=${O && !this.disabled ? this.href : void 0} > ${this.label} ${this.suffix ? N`<span class=\"button--icon\"><q-icon fitHeight icon=\"${this.suffix}\"></span>` : N``} </${w}> `; } }"
+        },
+        {
+          "kind": "variable",
+          "name": "E",
+          "default": "class extends C { constructor() { super(...arguments), this.icon = \"\", this.stroke = 2, this.size = 24, this.fitHeight = !1; } getHeight() { return this.fitHeight ? \"100%\" : this.size; } render() { return te`${re(se.icons[this.icon].toSvg({ \"stroke-width\": this.stroke, height: this.getHeight(), width: \"auto\", color: \"currentColor\" }))}`; } }"
         }
       ],
       "exports": [
@@ -18,6 +23,14 @@
           "name": "QButton",
           "declaration": {
             "name": "S",
+            "module": "dist/qwack.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "QIcon",
+          "declaration": {
+            "name": "E",
             "module": "dist/qwack.js"
           }
         }

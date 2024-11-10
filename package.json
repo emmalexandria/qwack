@@ -1,11 +1,17 @@
 {
   "name": "qwack",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "type": "module",
   "main": "dist/qwack.js",
-  "module": "dist/qwack",
   "types": "dist/qwack.d.ts",
+  "files": "dist",
+  "exports": {
+    ".": "dist/qwack.js",
+    "./components/*": "dist/components/*",
+    "./themes/*": "dist/themes/*",
+    "./*": "dist/*"
+  },
   "scripts": {
     "dev": "npm-run-all -p gen:custom-elements:watch storybook",
     "build": "npm-run-all -s vite:build gen:custom-elements",
@@ -36,11 +42,11 @@
     "storybook": "^8.4.2",
     "ts-lit-plugin": "^2.0.2",
     "typescript": "^5.6.3",
+    "@open-wc/lit-helpers": "^0.7.0",
     "vite": "^5.4.10",
     "vite-plugin-dts": "^4.3.0"
   },
   "dependencies": {
-    "@open-wc/lit-helpers": "^0.7.0",
     "feather-icons": "^4.29.2"
   }
 }
