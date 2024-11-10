@@ -1,0 +1,26 @@
+{
+  "name": "qwack",
+  "version": "1.0.0",
+  "description": "",
+  "type":"module",
+  "main": "dist/qwack.js",
+  "module": "dist/qwack",
+  "types": "dist/qwack.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@storybook/builder-vite": "^8.4.2",
+    "@storybook/web-components": "^8.4.2",
+    "@types/node": "^22.9.0",
+    "lit": "^3.2.1",
+    "ts-lit-plugin": "^2.0.2",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "vite-plugin-dts": "^4.3.0"
+  }
+}
