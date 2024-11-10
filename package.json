@@ -3,12 +3,15 @@
   "version": "0.0.1",
   "description": "",
   "type": "module",
-  "main": "dist/qwack.js",
-  "types": "dist/qwack.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": ["dist"],
   "exports": {
-    ".": "dist/qwack.js",
-    "./*": "dist/*"
+    ".": "dist/index.js",
+    "./themes": "dist/themes",
+    "./themes/*": "dist/themes/*",
+    "./components": "dist/components",
+    "./components/*": "dist/components/*"
   },
   "scripts": {
     "dev": "npm-run-all -p gen:custom-elements:watch storybook",
