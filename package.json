@@ -6,7 +6,7 @@
   "main": "dist/qwack",
   "types": "dist/qwack.d.ts",
   "exports": {
-    ".": "dist/index.js",
+    ".": "dist/qwack.js",
     "./*": "dist/*",
     "./themes": "dist/themes",
     "./themes/*": "dist/themes/*",
