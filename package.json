@@ -5,7 +5,7 @@
   "type": "module",
   "main": "dist/qwack.js",
   "types": "dist/qwack.d.ts",
-  "files": "dist",
+  "files": ["dist"],
   "exports": {
     ".": "dist/qwack.js",
     "./components/*": "dist/components/*",
