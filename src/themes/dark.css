@@ -1,0 +1,16 @@
+@import url("./base.css");
+
+:host,
+.qwack-dark-theme {
+	--qwack-foreground: #fafafa;
+	--qwack-background: #2c2c2c;
+	--qwack-accent: #3372ff;
+	--qwack-accent-shadow: rgb(51, 114, 255, 0.2);
+	--qwack-gray: #8c8c8c;
+	--qwack-error: #ed3819;
+	--qwack-success: #31d760;
+}
+
+html.qwack-dark-theme {
+	background-color: var(--qwack-background);
+}

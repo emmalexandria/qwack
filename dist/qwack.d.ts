@@ -1,2 +1,2 @@
-export * from './components/button/button';
+export { QButton } from './components/button/button';
 //# sourceMappingURL=qwack.d.ts.map

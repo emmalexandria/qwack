@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "plugins": [{"name": "ts-lit-plugin"}],
     "target": "es2021",
     "module": "es2015",
     "moduleResolution": "node",
@@ -12,9 +13,8 @@
     "useDefineForClassFields": false,
 
     "rootDir": "src",
-    "outDir": "dist",
+    "outDir": "dist"
   
-    "plugins": [{"name": "ts-lit-plugin"}]
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist", "stories"]

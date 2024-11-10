@@ -4,8 +4,14 @@ import dts from 'vite-plugin-dts';
 
 export default defineConfig({
         build: {
+                cssCodeSplit: true,
                 lib: {
-                        entry: resolve(__dirname, 'src/qwack.ts'),
+                        entry: {
+                                index: resolve(__dirname, 'src/qwack.ts'),
+                                'themes/light.css': resolve(__dirname, 'src/themes/light.css'),
+                                'themes/dark.css': resolve(__dirname, 'src/themes/dark.css')
+                        },
+
                         formats: ['es'],
                         fileName: 'qwack'
                 },
@@ -18,4 +24,5 @@ export default defineConfig({
                         insertTypesEntry: true,
                 })
         ]
+
 });

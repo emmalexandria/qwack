@@ -1,10 +1,13 @@
-import { LitElement, CSSResultGroup } from 'lit';
-export declare class QButton extends LitElement {
-    size: "small" | "medium" | "large";
+import { CSSResultGroup } from 'lit';
+import { QBase } from '../base';
+export declare class QButton extends QBase {
+    label: string;
+    size: "small" | "regular" | "large";
     primary: boolean;
     href: string;
-    pill: boolean;
+    disabled: boolean;
+    private isLink;
     static styles: CSSResultGroup;
-    render(): import('lit').TemplateResult<1>;
+    render(): import('lit').TemplateResult;
 }
 //# sourceMappingURL=button.d.ts.map

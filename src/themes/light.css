@@ -1,0 +1,18 @@
+@import url("./base.css");
+
+:root,
+:host,
+.qwack-light-theme {
+	--qwack-background: #fafafa;
+	--qwack-foreground: #2c2c2c;
+
+	--qwack-accent: #2e67e6;
+
+	--qwack-gray: #8c8c8c;
+	--qwack-error: #ed3819;
+	--qwack-success: #31d760;
+}
+
+html.qwack-light-theme {
+	background-color: var(--qwack-background);
+}

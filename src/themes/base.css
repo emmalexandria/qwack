@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root,
+:host {
+	font-display: swap;
+
+	/* Typography variables */
+	--qwack-font-sm: 12px;
+	--qwack-font-r: 16px;
+	--qwack-font-lg: 18px;
+	--qwack-font-sans: "Raleway", sans-serif;
+	--qwack-font-serif: "Cormorant Garamond", serif;
+
+	/* Spacing variables */
+	--qwack-base-unit: 4px;
+	--qwack-space-0_5: calc(0.5 * var(--qwack-base-unit));
+	--qwack-space-1: var(--qwack-base-unit);
+	--qwack-space-1_5: calc(1.5 * var(--qwack-base-unit));
+	--qwack-space-2: calc(2 * var(--qwack-base-unit));
+	--qwack-space-2_5: calc(2.5 * var(--qwack-base-unit));
+	--qwack-space-3: calc(3 * var(--qwack-base-unit));
+	--qwack-space-3_5: calc(3.5 * var(--qwack-base-unit));
+	--qwack-space-4: calc(4 * var(--qwack-base-unit));
+
+	/* Corner radii */
+	--qwack-rounded-sm: var(--qwack-base-unit);
+	--qwack-rounded-md: calc(2 * var(--qwack-base-unit));
+	--qwack-rounded-lg: calc(2.5 *var(--qwack-base-unit));
+	--qwack-rounded-xl: calc(3 *var(--qwack-base-unit));
+
+	/* Transitions */
+	--qwack-t-duration: 150ms;
+	--qwack-t-enter: ease-out;
+	--qwack-t-exit: ease-in;
+}
