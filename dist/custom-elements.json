@@ -4,7 +4,7 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "dist/index.js",
+      "path": "dist/qwack.js",
       "declarations": [
         {
           "kind": "variable",
@@ -31,7 +31,7 @@
           "name": "p",
           "declaration": {
             "name": "n",
-            "module": "dist/index.js"
+            "module": "dist/qwack.js"
           }
         },
         {
@@ -39,7 +39,7 @@
           "name": "p",
           "declaration": {
             "name": "n",
-            "module": "dist/index.js"
+            "module": "dist/qwack.js"
           }
         },
         {
@@ -47,7 +47,7 @@
           "name": "QButton",
           "declaration": {
             "name": "E",
-            "module": "dist/index.js"
+            "module": "dist/qwack.js"
           }
         },
         {
@@ -55,7 +55,7 @@
           "name": "QIcon",
           "declaration": {
             "name": "k",
-            "module": "dist/index.js"
+            "module": "dist/qwack.js"
           }
         }
       ]
